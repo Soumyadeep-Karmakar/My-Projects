@@ -1,0 +1,4 @@
+Tab- for automatically showing files in read.csv
+Shift+tab- for function parameter to see parameter list
+Task- Perform exact same analysis using Practice Dataset related to cummulative number of deaths
+Find out if there are less cases in not developed countries due to lack of testing kits
