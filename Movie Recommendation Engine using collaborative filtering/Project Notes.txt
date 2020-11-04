@@ -1,0 +1,2 @@
+!pip - ! is not because pip is a shell command not a python command
+Doubt- filter_movies[filter_movies].index.tolist()
