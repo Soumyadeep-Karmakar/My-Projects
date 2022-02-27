@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE| Lab Assignment</title>
+    
+    <style>
+        .container {
+    padding:30px;
+    border: 1px solid rgb(173, 169, 169);
+    box-shadow: 0 0 20px #5f6061;
+    margin:30px ;
+}
+.buttons {
+    margin-top: 15px;
+    width: 100px;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    color: white;
+    background-color: #341d75;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.buttons:hover{
+    box-shadow:3px 3px 10px 2px #CCCCDD;
+    padding:10px 14px 10px 14px;
+    cursor:pointer;
+    background:linear-gradient(180deg,#DCDCEE,#FEFEFF);
+    color:royalblue;
+    border:1px solid royalblue;
+}
+.buttons:focus{
+    background:linear-gradient(180deg,#DCDCEE,#FEFEFF);
+    color:royalblue;
+}
+.commonHeader{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:x-large;
+    font-weight:bold;
+    text-align:center;
+    margin:5px;
+}
+.commonLabel{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:medium;
+        text-align:right;
+        padding:5px;
+    }
+.commonInput{
+    padding:5px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:medium;
+    text-align:left;
+    margin:5px;
+    border-radius:5px;
+    border:2px solid lightblue;
+}    
+.error-text {
+    background-color: #ff9292;
+}
+.error{
+    font-family:calibri;
+    font-size:small;
+    color:#EF2354;
+    padding:5px;
+    font-style:italic;
+    width:150px;
+}
+.box{
+    margin-top: 30px;
+    margin-bottom: 60px;
+    box-shadow:1px 5px 10px rgba(0,0,0,0.5);
+    box-sizing:border-box;
+    margin:20px,20px;
+}
+.headerCell{
+    font-family: calibri;
+    font-size: large;
+    color: #8F3925;
+    padding: 10px;
+    border: 2px solid #934422;
+    background: #EFBADA;
+    border-radius: 5px;
+}
+.commonCell{
+    font-family: calibri;
+    font-size: medium;
+    color: #122354;
+    padding: 5px;
+    border: 1px solid #934422;
+    border-radius: 5px;
+}
+    </style>
+
+</head>
+
+<body onload="getId()">
+    <center>
+        <form id="frmPatientReg" name="frmPatientReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Patient Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PATIENT_ID:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtPatientId" name="txtPatientId" readonly></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PATIENT_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtPatientName" name="txtPatientName" maxlength="50" onblur="checkPName(this)"></td>
+                    <td><div id="divPatientName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">ADDRESS:</td>
+                    <td><input type="text" class = "commonInput" id = "txtPAddress" name="txtPAddress" maxlength="250" onblur="checkPAddress(this)"></td>
+                    <td><div id="divPAddress" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PHONE_NO.:</td>
+                    <td><input type="number" class = "commonInput" id = "noPhNo" name="noPhNo" onblur="checkStartDate(this)" onblur="checkPhNo(this)"></td>
+                    <td><div id="divPhNo" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">RECOMMENDED_DOCTOR:</td>
+                    <td><input type="text" class = "commonInput" id = "txtRec" name="txtRec" onblur="checkRec(this)"></td>
+                    <td><div id="divRec" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TEST_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtTestName" name="txtTestName" onblur="checkTestName(this)"></td>
+                    <td><div id="divTestName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MEASURING_PARAMETER:</td>
+                    <td><input type="text" class = "commonInput" id = "txtMParameter" name="txtMParameter" onblur="checkMParameter(this)"></td>
+                    <td><div id="divMParameter" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TEST_PARAMETER_VALUE:</td>
+                    <td><input type="text" class = "commonInput" id = "txtPValue" name="txtPValue" onblur="checkPValue(this)"></td>
+                    <td><div id="divPValue" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showPDetails"></div>
+        </table>
+    </center>    
+</body>
+</html>
+
+<script language="JavaScript" type="text/javascript">
+var count = 1;
+flagPName = false;
+flagPAddress = false;
+flagPhNo = false;
+flagTestName = false;
+flagMParameter = false;
+flagRec = false;
+flagPValue = false;
+
+function getId()
+{
+    var pid = "PT"+count;
+    var numzeroes = 12 - pid.length;
+    pid = "";
+    for(var i=0; i<numzeroes; i++)
+    {
+        pid += "0";
+    }
+    pid = "PT"+pid+count;
+    
+    document.getElementById("txtPatientId").value = pid;
+}
+
+function checkPName(htmlObj)
+{
+    var strPName = htmlObj.value;
+    if(strPName == "") {
+        flagPName = false;
+        document.getElementById("divPatientName").innerHTML = "Please Enter Patient Name.";
+    }
+    else {
+        flagPName = true;
+        document.getElementById("divPatientName").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("txtPatientName").className = "commonInput";
+        }
+}
+
+function checkPAddress(htmlObj)
+{
+    var strPAddress = htmlObj.value;
+    if(strPAddress == "") {
+        flagPAddress = false;
+        document.getElementById("divPAddress").innerHTML = "Please Enter Patient Address.";
+    }
+    else {
+        flagPAddress = true;
+        document.getElementById("divPAddress").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("txtPAddress").className = "commonInput";
+        }
+}
+
+function checkPhNo(htmlObj)
+{
+    var strPhNo = htmlObj.value;
+    if(strPhNo == "") {
+        flagPhNo = false;
+        document.getElementById("divPhNo").innerHTML = "Please Enter Patient Phone Number.";
+    }
+    else {
+        flagPhNo = true;
+        document.getElementById("divPhNo").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("noPhNo").className = "commonInput";
+        }
+}
+
+function checkRec(htmlObj)
+{
+    var strRec = htmlObj.value;
+    if(strRec == "") {
+        flagRec = false;
+        document.getElementById("divRec").innerHTML = "Please Enter Recommended Doctor.";
+    }
+    else {
+        flagRec = true;
+        document.getElementById("divRec").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("txtRec").className = "commonInput";
+        }
+}
+
+function checkTestName(htmlObj)
+{
+    var strTestName = htmlObj.value;
+    if(strTestName == "") {
+        flagTestName = false;
+        document.getElementById("divTestName").innerHTML = "Please Enter Test Name.";
+    }
+    else {
+        flagTestName = true;
+        document.getElementById("divTestName").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("txtTestName").className = "commonInput";
+        }
+}
+
+function checkMParameter(htmlObj)
+{
+    var strMParameter = htmlObj.value;
+    if(strMParameter == "") {
+        flagMParameter = false;
+        document.getElementById("divMParameter").innerHTML = "Please Enter Test Parameter.";
+    }
+    else {
+        flagMParameter = true;
+        document.getElementById("divMParameter").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("txtMParameter").className = "commonInput";
+        }
+}
+
+function checkPValue(htmlObj)
+{
+    var strPValue = htmlObj.value;
+    if(strPValue == "") {
+        flagPValue = false;
+        document.getElementById("divPValue").innerHTML = "Please Enter Test Parameter Value.";
+    }
+    else {
+        flagPValue = true;
+        document.getElementById("divPValue").innerHTML = "<img src =tick.jpeg>";
+        document.getElementById("txtPValue").className = "commonInput";
+        }
+}
+
+var userRow = "";
+function checkAllInput() {
+	var headerContent = "";
+    headerContent = "<table border =0><tr>";
+    headerContent += "<td align=center valign=center class=headerCell>Sl. No.</td>";
+	headerContent += "<td align=center valign=center class=headerCell>Patient Id</td>";
+    headerContent += "<td align=center valign=center class=headerCell>Patient Name</td>";
+	headerContent += "<td align=center valign=center class=headerCell>Address</td>";
+	headerContent += "<td align=center valign=center class=headerCell>Phone No.</td>";
+    headerContent += "<td align=center valign=center class=headerCell>Recommended Doctor</td>";
+    headerContent += "<td align=center valign=center class=headerCell>Test Name</td>";
+    headerContent += "<td align=center valign=center class=headerCell>Measuring Parameter</td>";
+    headerContent += "<td align=center valign=center class=headerCell>Test Parameter Value</td>";
+	
+    var pid = document.getElementById("txtPatientId").value;
+	var pn = document.getElementById("txtPatientName").value;
+    var pa = document.getElementById("txtPAddress").value;
+    var phno = document.getElementById("noPhNo").value;
+    var tn = document.getElementById("txtTestName").value;
+    var mp = document.getElementById("txtMParameter").value;
+    var rc = document.getElementById("txtRec").value;
+    var tpv = document.getElementById("txtPValue").value;
+    
+    userRow += "<tr>";
+    userRow += "<td align=center valign=center class=commonCell>"+count+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+pid+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+pn+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+pa+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+phno+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+rc+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+tn+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+mp+"</td>";
+    userRow += "<td align=center valign=center class=commonCell>"+tpv+"</td>";
+    userRow += "</tr>";
+    var content = headerContent+userRow+"</table>";
+    document.getElementById("showPDetails").innerHTML = content;
+    alert("Patient Details Successfully Added!!!");
+    document.getElementById("frmPatientReg").reset();  
+	
+    count++;
+    getId();
+}
+
+</script>

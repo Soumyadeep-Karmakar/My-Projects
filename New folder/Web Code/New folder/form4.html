@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>HTML Form</title>
+		<h3>Course Registration</h3>
+	</head>
+<body onload="getId()">
+	<form id="frmCourseReg" name="frmCourseReg" action="/action_page.php">
+		<table>
+			<tr>
+				<td>Course ID:</td>
+				<td colspan="2"><input readonly type="text" name="id" value="C01"></td>
+			</tr>
+			<tr>
+				<td>Course Name:</td>
+				<td><input type="text" name="name" onblur="checkName(this)" value="E.g.Computer Science and Engineering"></td>
+			</tr>
+			<tr>
+				<td>Course Type:</td>
+				<td colspan="2"><select id="OptCourseType" name="OptCourseDuration">
+					<option>Select Course Type...</option>
+					<option value="B.Tech">B.Tech</option>
+					<option value="M.tech">M.Tech</option>
+					<option value="Bachelor">Bachelor</option>
+					<option value="Master's">Master's</option>
+					<option value="Diploma">Diploma</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Duration:</td>
+				<td><select id="OptCourseDuration" name="OptCourseDuration">
+					<option>Select Duration...</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="Add"></td>
+				<td><input type="button" value="Cancel"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+
+<script language="JavaScript" type="text/javascript">
+ var count=1;
+ var flagName=false;
+ 
+ function checkName(htmlObj){
+  var strCName= htmlObj.value;
+  if(strCName=="")
+	{
+	flagName=false;
+	document.getElementById("divCourseName").innerHTML = "Please enter Course Name: ";
+	}
+   else
+	{
+	flagName=false;
+	var valid = /^[a zA Z]+ $/;
+	if(!strCName.match(valid))
+		{
+		document.getElementById("divCourseName").innerHTML = "Invalid Course Name. Only alphabets and space are allowed.";
+		flagName= false;
+		document.getElementById("divCourseName").;
+		}
+	else
+		{
+		flagName=true;
+		document.getElementById("divCourseName").innerHTML = "<img src=tick.jpg>";
+		}
+	}
+ }
+ 
+ function getId(){
+  var cid="C"+count;
+  var numzeroes= 3- cid.length;
+  var cid= "C";
+  for(var i=0; i<numzeroes; i++)
+	{
+	cid+="0";
+	}
+  cid+=count;
+  document.getElementById("txtCourseId").value= cid;
+ }
+ 
+ function checkAllInput()
+	{
+	if(document.getElementById("txtCourseId").value!="")
+		{
+		if(document.getElementById("txtCourseName").value!="" && flagName!=false)
+			if(document.getElementById("OptCourseDuration").value!="" )
+				if(document.getElementById("OptCourseType").value!="")
+					{
+					var headerContent= "";
+					var userRow= "";
+					headerContent= "<table border=0><tr>";
+					headerContent+= "<td align=center valign=center> Sl.No.</td>";
+					headerContent+= "<td align=center valign=center> Course ID</td>";
+					headerContent+= "<td align=center valign=center> Course Name</td>";
+					headerContent+= "<td align=center valign=center> Duration</td>";
+					headerContent+= "<td align=center valign=center> Course Type</td>";
+					headerContent+="</tr>";
+					var cid= document.getElementById("txtCourseName").value;
+					var cname= document.getElementById("txtCourseName").value;
+					var ctype= document.getElementById("txtCourseName").value;
+					var duration= document.getElementById("optCourseDuration").value;
+					}
+		}
+	if(flagName==false)
+		alert("Enter correct name:");
+	}
+
+</script>

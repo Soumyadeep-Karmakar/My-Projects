@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE | Lab(A4)</title>
+    <link rel="stylesheet" href="project1.css">
+</head>
+<body onload="getProjId()">
+    <center>
+        <form id="frmProjectReg" name="frmProjectReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Project Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Proj_ID:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtProjID" name="txtProjID" readonly></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Project_Name:</td>
+                    <td><input type="text" class = "commonInput" id = "txtProjectName" name="txtProjectName" maxlength="50" onblur="checkProjectName(this)"></td>
+                    <td><div id="divProjectName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Technology_Domain:</td>
+                    <td><input type="text" class = "commonInput" id = "txtTechnologyDomain" name="txtTechnologyDomain" maxlength="50" onblur="checkTechnologyDomain(this)"></td>
+                    <td><div id="divTechnologyDomain" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Description:</td>
+                    <td><textarea class = "commonInput" id = "txtDescription" name="txtDescription" maxlength="250" onblur="checkDescription(this)"></textarea></td>
+                    <td><div id="divDescription" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Client:</td>
+                    <td><input type="text" class = "commonInput" id = "txtClient" name="txtClient" maxlength="50" onblur="checkClient(this)"></td>
+                    <td><div id="divClient" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Start_Date:</td>
+                    <td><input type="Date" class = "commonInput" id = "dtStartDate" name="dtStartDate" onblur="checkStartDate(this)" oninput="enableEndDate(this)"></td>
+                    <td><div id="divStartDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">ScheduledEnd_Date:</td>
+                    <td><input type="date" class = "commonInput" id = "dtEndDate" name="dtEndDate" onblur="checkEndDate(this)" oninput="enableLeadEndDate(this)" disabled></td>
+                    <td><div id="divEndDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">Project Lead:</td>
+                    <td><input type="text" class = "commonInput" id = "txtProjectLead" name="txtProjectLead" maxlength="250" onblur="getProjectLeadId()"></td>
+                    <td><div id="divProjectLead" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">LeadStart_Date:</td>
+                    <td><input readonly type="text" class = "commonInput" id = "dtLeadStartDate" name="dtLeadStartDate" onblur="checkLeadStartDate(this)"></td>
+                    <td><div id="divLeadStartDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">LeadEnd_Date:</td>
+                    <td><input disabled type="date" class = "commonInput" id = "dtLeadEndDate" name="dtLeadEndDate" onblur="checkLeadEndDate(this)"></td>
+                    <td><div id="divLeadEndDate" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showCourses"></div>
+        </table>
+    </center>    
+</body>
+</html>
+<script src="project1.js"></script>

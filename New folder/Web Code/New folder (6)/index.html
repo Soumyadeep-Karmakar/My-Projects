@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE | Lab(A3)</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <center>
+        <form id="frmModelReg" name="frmModelReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Product Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MODEL_NO:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtModelNo" name="txtModelNo" maxlength="20" onblur="checkMNo(this)"></td>
+                    <td><div id="divModelNo" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MODEL_NAME:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtModelName" name="txtModelName" maxlength="50" onblur="checkMName(this)"></td>
+                    <td><div id="divModelName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">DESCRIPTION:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtDescription" name="txtDescription" maxlength="250" ></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MANUFACTURER:</td>
+					<td>
+						<select name="txtManufacturer" id="txtManufacturer" class="commonInput" readonly >
+							<option value="">--Choose a Manufacturer--</option>
+							<option value="M1">LG</option>
+							<option value="M2">Samsung</option>
+							<option value="M3">Sony</option>
+                            <option value="M4">Whirlpool</option>
+                            <option value="M5">Hitachi</option>
+						</select>
+					</td>
+                    <td colspan="2"><div id = "divManufacturer" class="error"></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PRODUCT CATEGORY:</td>
+                    <td>
+						<select name="txtPCategory" id="txtPCategory" class="commonInput" readonly onchange="loadPType(this)">
+							<option value="">--Choose a Product Category--</option>
+							<option value="PC000001">Electronics</option>
+							<option value="PC000002">Laptops & Desktops</option>
+							<option value="PC000003">Televisions</option>
+                            <option value="PC000004">Small Home Appliances</option>
+                            <option value="PC000005">Camera & Accessories</option>
+                            <option value="PC000006">Large Home Appliances</option>
+						</select>
+					</td>
+					</td>
+                    <td><div id="divPCategory" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PRODUCT_TYPE:</td>
+                    <td><div id="dvPType" class="error"></div></td>
+                    <td><div id="divPType" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PRICE:</td>
+                    <td colspan="2"><input type="number" id="txtPrice" class = "commonInput" id = "txtPrice" name="txtPrice" ></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">COLOR:</td>
+                    <td>
+						<select name="txtColor" id="txtColor" class="commonInput" readonly >
+							<option value="">--Choose a Color--</option>
+							<option value="C1">Blue</option>
+							<option value="C2">Green</option>
+							<option value="C3">Yellow</option>
+						</select>
+					</td>
+                    <td><div id="divColor" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showCourses"></div>
+        </table>
+    </center>    
+</body>
+</html>
+<script src="index.js"></script>

@@ -1,0 +1,2 @@
+product category has product type
+manufacturer,product type has model

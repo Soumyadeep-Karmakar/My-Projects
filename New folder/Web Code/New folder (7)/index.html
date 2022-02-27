@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE | Lab(A3)</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onload="getId()">
+    <center>
+        <form id="frmPatientReg" name="frmPatientReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Patient Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PATIENT_ID:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtPatientId" name="txtPatientId" readonly></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PATIENT_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtPatientName" name="txtPatientName" maxlength="50" onblur="checkPName(this)"></td>
+                    <td><div id="divPatientName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">ADDRESS:</td>
+                    <td><input type="text" class = "commonInput" id = "txtPAddress" name="txtPAddress" maxlength="250" onblur="checkPAddress(this)"></td>
+                    <td><div id="divPAddress" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PHONE_NO.:</td>
+                    <td><input type="number" class = "commonInput" id = "noPhNo" name="noPhNo" onblur="checkStartDate(this)" onblur="checkPhNo(this)"></td>
+                    <td><div id="divPhNo" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">RECOMMENDED_DOCTOR:</td>
+                    <td><input type="text" class = "commonInput" id = "txtRec" name="txtRec" onblur="checkRec(this)"></td>
+                    <td><div id="divRec" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TEST_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtTestName" name="txtTestName" onblur="checkTestName(this)"></td>
+                    <td><div id="divTestName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MEASURING_PARAMETER:</td>
+                    <td><input type="text" class = "commonInput" id = "txtMParameter" name="txtMParameter" onblur="checkMParameter(this)"></td>
+                    <td><div id="divMParameter" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TEST_PARAMETER_VALUE:</td>
+                    <td><input type="text" class = "commonInput" id = "txtPValue" name="txtPValue" onblur="checkPValue(this)"></td>
+                    <td><div id="divPValue" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showPDetails"></div>
+        </table>
+    </center>    
+</body>
+</html>
+<script src="index.js"></script>

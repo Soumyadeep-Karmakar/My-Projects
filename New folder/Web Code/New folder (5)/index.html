@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE | Lab(A3)</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onload="getId()">
+    <center>
+        <form id="frmTourReg" name="frmTourReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Topic Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TOPIC_ID:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtTopicId" name="txtTopicId" readonly></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">SUBJECT:</td>
+                    <td>
+						<select name="txtSubject" id="txtSubject" class="commonInput" readonly onchange="loadTopic(this)" onblur="checkSubjectName(this)">
+							<option value="">--Choose a Subject--</option>
+							<option value="ESC501">Software Engineering</option>
+							<option value="PCCCS501">Compiler Design</option>
+							<option value="PCCCS502">Operating Systems</option>
+						</select>
+					</td>
+                    <td><div id="divSubject" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MODULE:</td>
+                    <td><div id="dvModule" class="error"></div></td>
+                    <td><div id="divModule" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TOPIC_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtTopicName" name="txtTopicName" size="30" maxlength="50" onblur="checkTopicName(this)"></td>
+                    <td><div id="divTopicName" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showCourses"></div>
+        </table>
+    </center>    
+</body>
+</html>
+<script src="index.js"></script>

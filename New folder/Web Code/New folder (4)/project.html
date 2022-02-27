@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE | Lab(A3)</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body onload="getId()">
+    <center>
+        <form id="frmMovieReg" name="frmMovieReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Movie Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">MOVIE_ID:</td>
+					<td>
+						<select name="txtMovieId" id="txtMovieId" class="commonInput" readonly onblur="checkMovieId(this)">
+							<option value="">--Choose a Movie--</option>
+							<option value="M1">Mov1</option>
+							<option value="M2">Mov2</option>
+							<option value="M3">Mov3</option>
+						</select>
+					</td>
+                    <td colspan="2"><div id = "divMovieId" class="error"></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">THEATRE_ID:</td>
+                    <td>
+						<select name="txtTheatreId" id="txtTheatreId" class="commonInput" readonly onblur="checkTheatreId(this)">
+							<option value="">--Choose a Theatre--</option>
+							<option value="TH1">THR1</option>
+							<option value="TH2">THR2</option>
+							<option value="TH3">THR3</option>
+						</select>
+					</td>
+					</td>
+                    <td><div id="divTheatreId" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">SCREEN_ID:</td>
+                    <td>
+						<select name="txtScreenId" id="txtScreenId" class="commonInput" readonly onblur="checkScreenId(this)">
+							<option value="">--Choose a Screen--</option>
+							<option value="SC001">Screen1</option>
+							<option value="SC002">Screen2</option>
+							<option value="SC003">Screen3</option>
+						</select>
+					</td>
+                    <td><div id="divScreenId" class="error"></div></td>
+                </tr>
+				<tr>
+                    <td align="right" class="commonLabel">SHOW_TIME:</td>
+                    <td>
+						<select name="txtShowTime" id="txtShowTime" class="commonInput" readonly onblur="checkShowTime(this)">
+							<option value="">--Choose a Show Time--</option>
+							<option value="ST001">12:00 - 2:00 PM</option>
+							<option value="ST002">3:00 - 5:45 PM</option>
+						</select>
+					</td>
+                    <td><div id="divShowTime" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">START_DATE:</td>
+                    <td><input type="date" class = "commonInput" id = "dtStartDate" name="dtStartDate" onblur="checkStartDate(this)" oninput="enableEndDate(this)"></td>
+                    <td><div id="divStartDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">END_DATE:</td>
+                    <td><input type="date" class = "commonInput" id = "dtEndDate" name="dtEndDate" onblur="checkEndDate(this)" disabled="disabled"></td>
+                    <td><div id="divEndDate" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showCourses"></div>
+        </table>
+    </center>    
+</body>
+</html>
+<script src="project.js"></script>

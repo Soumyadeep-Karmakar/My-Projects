@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE | Lab(A3)</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onload="getId()">
+    <center>
+        <form id="frmTourReg" name="frmTourReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Tour Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TOUR_ID:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtTourId" name="txtTourId" readonly></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TOUR_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtTourName" name="txtTourName" maxlength="50" onblur="checkTourName(this)"></td>
+                    <td><div id="divTourName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">DESTINATION:</td>
+                    <td><input type="text" class = "commonInput" id = "txtDestination" name="txtDestination" maxlength="250" onblur="checkTourDestination(this)"></td>
+                    <td><div id="divDestination" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">START_DATE:</td>
+                    <td><input type="date" class = "commonInput" id = "dtStartDate" name="dtStartDate" onblur="checkStartDate(this)" oninput="enableEndDate(this)"></td>
+                    <td><div id="divStartDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">END_DATE:</td>
+                    <td><input type="date" class = "commonInput" id = "dtEndDate" name="dtEndDate" onblur="checkEndDate(this)" disabled="disabled"></td>
+                    <td><div id="divEndDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PRICE_PER_HEAD: (INR.)</td>
+                    <td><input type="number" class = "commonInput" id = "noPricePerHead" name="noPricePerHead" min="500" max ="100000" onblur="checkPrice(this)"></td>
+                    <td><div id="divPricePerHead" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+        <table class="content">
+            <div id="showCourses"></div>
+        </table>
+    </center>    
+</body>
+</html>
+<script src="index.js"></script>

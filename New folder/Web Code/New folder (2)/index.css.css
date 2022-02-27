@@ -1,0 +1,91 @@
+.container {
+            padding:30px;
+            border: 1px solid rgb(173, 169, 169);
+            box-shadow: 0 0 20px #5f6061;
+            margin:30px ;
+        }
+        .buttons {
+            margin-top: 15px;
+            width: 100px;
+            height: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            color: white;
+            background-color: #341d75;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .buttons:hover{
+            box-shadow:3px 3px 10px 2px #CCCCDD;
+            padding:10px 14px 10px 14px;
+            cursor:pointer;
+            background:linear-gradient(180deg,#DCDCEE,#FEFEFF);
+            color:royalblue;
+            border:1px solid royalblue;
+        }
+        .buttons:focus{
+            background:linear-gradient(180deg,#DCDCEE,#FEFEFF);
+            color:royalblue;
+        }
+        .commonHeader{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:x-large;
+            font-weight:bold;
+            text-align:center;
+            margin:5px;
+        }
+        .commonLabel{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size:medium;
+                text-align:right;
+                padding:5px;
+            }
+        .commonInput{
+            padding:5px;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:medium;
+            text-align:left;
+            margin:5px;
+            border-radius:5px;
+            border:2px solid lightblue;
+        }    
+        .error-text {
+            background-color: #ff9292;
+        }
+        .error{
+            font-family:calibri;
+            font-size:small;
+            color:#EF2354;
+            padding:5px;
+            font-style:italic;
+            width:150px;
+        }
+        .box{
+            margin-top: 30px;
+            margin-bottom: 60px;
+            box-shadow:1px 5px 10px rgba(0,0,0,0.5);
+            box-sizing:border-box;
+            margin:20px,20px;
+        }
+        .headerCell{
+            font-family: calibri;
+            font-size: large;
+            color: #8F3925;
+            padding: 10px;
+            border: 2px solid #934422;
+            background: #EFBADA;
+            border-radius: 5px;
+        }
+		.commonCell{
+            font-family: calibri;
+            font-size: medium;
+            color: #122354;
+            padding: 5px;
+            border: 1px solid #934422;
+            border-radius: 5px;
+        }

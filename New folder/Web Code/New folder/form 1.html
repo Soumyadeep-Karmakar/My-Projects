@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE LAB A1</title>
+<style>
+body {
+font-family: Serif;
+
+font-size: 20px;
+
+}
+
+* {
+box-sizing: border-box;
+}
+h1{
+color: #800080;
+}
+.container {
+
+background-color: silver;
+}
+input[type=text], input[type=password], input[type=number], input[type=email] {
+padding: 15px;
+width: 420px;
+
+margin: 2px 0 10px 0;
+border-radius: 10px;
+border-color: slateblue;
+background: #f1f1f1;
+}
+textarea{
+padding: 15px;
+width: 420px;
+margin: 2px 0 10px 0;
+border-radius: 10px;
+border-color: slateblue;
+background: #f1f1f1;
+}
+#point{
+float: right;
+padding: 18px;
+}
+.btn{
+background-color: #FF00FF; color: white; border: none; border-radius: 5px; padding: 8px 16px;
+transition: .90s; box-shadow: 2px 4px #888888;
+}
+.btn:hover{
+background-color: rgb(26, 168, 168);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<center>
+
+<h1>Registration Form</h1>
+
+<form method="POST">
+<table>
+<tr>
+<td id = "point">Name : </td>
+<td><input type = "text"></td>
+</tr>
+<tr>
+<td id = "point">Email : </td>
+<td><input type = "email">
+<input type="button" class="btn" value="check"></td>
+</tr>
+<tr>
+<td id = "point">Age : </td>
+<td><input type = "number"></td>
+</tr>
+<tr>
+<td id = "point">Country : </td>
+<td><input type = "text" value="India" disabled></td>
+</tr>
+<tr>
+<td id = "point">password : </td>
+<td><input type = "password"></td>
+</tr>
+<tr>
+<td id = "point">Resume : </td>
+<td><input type = "file"></td>
+</tr>
+
+<tr>
+<td id = "point">Hobbies : </td>
+<td><input type = "checkbox" id="game" value="cricket" checked="checked">Cricket
+<input type = "checkbox" id="game" value="football">Football</td>
+</tr>
+<tr>
+<td id = "point">Gender : </td>
+<td>
+<input type = "radio" id="female" name="gender" value="female">Female
+<input type = "radio" id="male" name="gender" value="male">Male</td>
+</tr>
+<tr>
+<td id = "point">City : </td>
+<td>
+<select id="city" name="city">
+<option value="" disabled selected>--Choose City--</option>
+<option>Kolkata</option>
+<option>Mumbai</option>
+<option>Delhi</option>
+</select>
+</td>
+</tr>
+<tr>
+<td id = "point">Address : </td>
+<td><textarea name="address" rows="4" cols="50"></textarea></td>
+</tr>
+<td></td>
+<td><input type="submit" class="btn" value="Submit">
+<input type="reset" class="btn" value="Reset"></td>
+
+</table>
+</form>
+</center>
+</div>
+</body>
+</html>

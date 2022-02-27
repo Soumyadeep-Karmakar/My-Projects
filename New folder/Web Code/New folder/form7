@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SE_lab(A3)</title>
+    <style>
+        .container {
+            padding:30px;
+            border: 1px solid rgb(173, 169, 169);
+            box-shadow: 0 0 20px #5f6061;
+            margin:30px ;
+        }
+        .buttons {
+            margin-top: 15px;
+            width: 100px;
+            height: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            color: white;
+            background-color: #341d75;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .buttons:hover{
+            box-shadow:3px 3px 10px 2px #CCCCDD;
+            padding:10px 14px 10px 14px;
+            cursor:pointer;
+            background:linear-gradient(180deg,#DCDCEE,#FEFEFF);
+            color:royalblue;
+            border:1px solid royalblue;
+        }
+        .buttons:focus{
+            background:linear-gradient(180deg,#DCDCEE,#FEFEFF);
+            color:royalblue;
+        }
+        .commonHeader{
+            font-family:calibri;
+            font-size:x-large;
+            font-weight:bold;
+            text-align:center;
+            margin:5px;
+        }
+        .commonLabel{
+                font-family: calibri;
+                font-size:medium;
+                text-align:right;
+                padding:5px;
+            }
+        .commonInput{
+            padding:5px;
+            font-family:calibri;
+            font-size:medium;
+            text-align:left;
+            margin:5px;
+            border-radius:5px;
+            border:2px solid lightblue;
+        }    
+
+        .error-text {
+            background-color: #ff9292;
+        }
+        .error{
+            font-family:calibri;
+            font-size:small;
+            color:#EF2354;
+            padding:5px;
+            font-style:italic;
+            width:150px;
+        }
+        .box{
+            box-shadow:1px 5px 10px rgba(0,0,0,0.5);
+            box-sizing:border-box;
+            margin:20px,20px;
+        }
+        .headerCell{
+            font-family: calibri;
+            font-size: large;
+            color: #8F3925;
+            padding: 10px;
+            border: 2px solid #934422;
+            background: #EFBADA;
+            border-radius: 5px;
+        }
+		.commonCell{
+            font-family: calibri;
+            font-size: medium;
+            color: #122354;
+            padding: 5px;
+            border: 1px solid #934422;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body onload="getId()">
+    <center>
+        <form id="frmTourReg" name="frmTourReg" action="#">
+            <table class= "box"> 
+                <tr>
+                    <td class="commonHeader" colspan="3">
+                        Tour Registration Form
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TOUR_ID:</td>
+                    <td colspan="2"><input type="text" class = "commonInput" id = "txtTourId" name="txtTourId" readonly></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">TOUR_NAME:</td>
+                    <td><input type="text" class = "commonInput" id = "txtTourName" name="txtTourName" maxlength="50" onblur="checkTourName(this)"></td>
+                    <td><div id="divTourName" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">DESTINATION:</td>
+                    <td><input type="text" class = "commonInput" id = "txtDestination" name="txtDestination" onblur="checkTouDestination(this)"></td>
+                    <td><div id="divDestination" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">START_DATE:</td>
+                    <td><input type="date" class = "commonInput" id = "dtStartDate" name="dtStartDate" onblur="checkName(this)"></td>
+                    <td><div id="divStartDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">END_DATE:</td>
+                    <td><input type="date" class = "commonInput" id = "dtEndDate" name="dtEndDate" onblur="checkName(this)"></td>
+                    <td><div id="divEndDate" class="error"></div></td>
+                </tr>
+                <tr>
+                    <td align="right" class="commonLabel">PRICE_PER_HEAD: (INR.)</td>
+                    <td><input type="number" class = "commonInput" id = "noPricePerHead" name="noPricePerHead" onblur="checkName(this)"></td>
+                    <td><div id="divPricePerHead" class="error"></div></td>
+                </tr>
+                <tr>          
+                    <td align="center" colspan="3">
+                        <input type="button" class ="buttons" value="Add" onclick="checkAllInput()">
+                        <input type="reset" class ="buttons" value="Cancel" onblur="getId()">
+                    </td>
+                </tr> 
+            </table>
+        </form>
+    </center>    
+</body>
+</html>
+<script language="JavaScript" type="text/javascript">
+    var count = 1;
+    var flagName = false;
+    var flagDestination = false;
+    function getId()
+    {
+        var tid = "TR"+count;
+        var numzeroes = 6 - tid.length;
+        tid = "";
+        for(var i=0; i<numzeroes; i++)
+        {
+            tid += "0";
+        }
+        tid = "TR"+tid+count;
+        document.getElementById("txtTourId").value = tid;
+        document.getElementById("divTourName").innerHTML = "";
+    }
+    function checkTourName(htmlObj)
+    {
+        var strTName = htmlObj.value;
+        if(strTName == "") {
+            flagName = false;
+            document.getElementById("divTourName").innerHTML = "Please Enter Tour Name.";
+        }
+        else {
+            flagName = false;
+            var valid = /^[a-zA-Z ]+$/;
+            if(!strTName.match(valid)) {
+                document.getElementById("divTourName").innerHTML = "Invalid Course Name. Only Alphabets & Spaces Are Allowed.";
+                document.getElementById("txtTourName").className = "error";
+                flagName = false; 
+            }else {
+                flagName = true;
+                document.getElementById("divTourName").innerHTML = "<img src =../image/tick2.jpeg >";
+                document.getElementById("txtTourName").className = "";
+            }
+        }
+    }
+    function checkTouDestination(htmlObj)
+    {
+        var strTDestination = htmlObj.value;
+        if(strTDestination == "") {
+            flagDestination = false;
+            document.getElementById("divDestination").innerHTML = "Please Enter valid Destination.";
+        }
+        else {
+            flagDestination = false;
+            var valid = /^[a-zA-Z, ]+$/;
+            if(!strDestination.match(valid)) {
+                document.getElementById("divDestination").innerHTML = "Invalid Destination. Only Alphabets, commas & Spaces Are Allowed.";
+                document.getElementById("txtDestination").className = "error";
+                flagDestination = false; 
+            }else {
+                flagDestination = true;
+                document.getElementById("divDestination").innerHTML = "<img src =../image/tick2.jpeg >";
+                document.getElementById("txtDestination").className = "";
+            }
+        }
+    }
+</script>
